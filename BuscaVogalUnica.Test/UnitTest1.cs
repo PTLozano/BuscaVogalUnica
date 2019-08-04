@@ -6,7 +6,7 @@ namespace BuscaVogalUnica.Test
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethodSimple()
         {
             string test = "aAbBABacfe";
 
@@ -17,7 +17,7 @@ namespace BuscaVogalUnica.Test
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void TestMethodManyCharacters()
         {
             string test = "aAbBABacfeaAbBABacf";
 

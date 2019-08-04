@@ -1,13 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace BuscaVogalUnica
 {
+    /// <summary>
+    /// Verifica o texto informado e valida os caracteres
+    /// </summary>
     public class CheckText
     {
         private static List<char> _vowelsList = new List<char>();
 
+        /// <summary>
+        /// Busca a vogal que não se repete e está após uma consoante
+        /// </summary>
+        /// <param name="input">Informe o manipulador com o texto que deseja verificar</param>
         public static char FirstChar(IStream input)
         {
             char vowel = '\0';
@@ -36,7 +42,6 @@ namespace BuscaVogalUnica
                 }
                 else
                 {
-                    Console.WriteLine("Caracter não está entre A-Z e a-z");
                     return '\0';
                 }
             }
