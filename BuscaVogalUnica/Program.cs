@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuscaVogalUnica
 {
@@ -10,6 +6,13 @@ namespace BuscaVogalUnica
     {
         static void Main(string[] args)
         {
+            string test = "aAbBABacfe";
+
+            IStream stream = new ManipulateText(test);
+            char result = CheckText.FirstChar(stream);
+
+            Console.WriteLine(result);
+            Console.ReadKey();
         }
     }
 }
