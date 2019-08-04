@@ -12,7 +12,7 @@ namespace BuscaVogalUnica
             IStream stream = new ManipulateText(test);
             char result = CheckText.FirstChar(stream);
             if (result == '\0')
-                message = "Caracter não está entre A-Z e a-z";
+                message = "Somente os caracteres entre A-Z e/ou a-z devem estar no texto.";
             else
                 message = result.ToString();
 

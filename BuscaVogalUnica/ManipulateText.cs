@@ -20,9 +20,15 @@
             _total = text.Length;
         }
 
-        public char getNext() => _text[_count++];
+        /// <summary>
+        /// Retorna o próximo caracter
+        /// </summary>
+        public char GetNext() => _text[_count++];
 
-        public bool hasNext()
+        /// <summary>
+        /// Verifica se há o próximo caracter
+        /// </summary>
+        public bool HasNext()
         {
             if (string.IsNullOrEmpty(_text)) return false;
 

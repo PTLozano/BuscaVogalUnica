@@ -3,10 +3,21 @@
 namespace BuscaVogalUnica.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest
     {
         [TestMethod]
         public void TestMethodSimple()
+        {
+            string test = "fe";
+
+            IStream stream = new ManipulateText(test);
+            char result = CheckText.FirstChar(stream);
+
+            Assert.AreEqual('e', result);
+        }
+
+        [TestMethod]
+        public void TestMethodReal()
         {
             string test = "aAbBABacfe";
 

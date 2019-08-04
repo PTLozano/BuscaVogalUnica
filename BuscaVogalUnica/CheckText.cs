@@ -19,9 +19,9 @@ namespace BuscaVogalUnica
             char vowel = '\0';
             bool isLastCharConsonant = false;
 
-            while (input.hasNext())
+            while (input.HasNext())
             {
-                char current = input.getNext();
+                char current = input.GetNext();
 
                 if (IsVowel(current))
                 {
@@ -49,6 +49,10 @@ namespace BuscaVogalUnica
             return vowel;
         }
 
+        /// <summary>
+        /// Verifica se o caracter é consoante
+        /// </summary>
+        /// <param name="letter">Caracter que deseja verificar</param>
         private static bool IsConsonant(char letter)
         {
             if ((letter > 65 && letter < 91 ||
@@ -57,6 +61,10 @@ namespace BuscaVogalUnica
             return false;
         }
 
+        /// <summary>
+        /// Verifica se o caracter é vogal
+        /// </summary>
+        /// <param name="letter">Caracter que deseja verificar</param>
         private static bool IsVowel(char letter)
         {
             char[] vowels = new char[] { 'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u' };
@@ -69,6 +77,10 @@ namespace BuscaVogalUnica
             return false;
         }
 
+        /// <summary>
+        /// Verifica se o caracter é novo
+        /// </summary>
+        /// <param name="letter">Caracter que deseja verificar</param>
         private static bool IsNewChar(char letter) => _vowelsList.Where(c => c == letter).Count() == 0;
     }
 }

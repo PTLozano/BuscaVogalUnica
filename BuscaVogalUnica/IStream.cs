@@ -2,7 +2,7 @@
 {
     public interface IStream
     {
-        char getNext();
-        bool hasNext();
+        char GetNext();
+        bool HasNext();
     }
 }
