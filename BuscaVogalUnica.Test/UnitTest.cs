@@ -92,5 +92,16 @@ namespace BuscaVogalUnica.Test
 
             Assert.AreEqual('\0', result);
         }
+
+        [TestMethod]
+        public void TestMethodWithNumbersAndSpecialCharactersAndUniqueVowel()
+        {
+            string test = "aAb.Bcf5eaAbBABa+cfotre";
+
+            IStream stream = new ManipulateText(test);
+            char result = CheckText.FirstChar(stream);
+
+            Assert.AreEqual('o', result);
+        }
     }
 }

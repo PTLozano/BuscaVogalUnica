@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace BuscaVogalUnica
 {
@@ -16,6 +15,8 @@ namespace BuscaVogalUnica
         /// <param name="input">Informe o manipulador com o texto que deseja verificar</param>
         public static char FirstChar(IStream input)
         {
+            ValidChar validChar = new ValidChar();
+
             char vowel = '\0';
             bool isLastCharConsonant = false;
 
@@ -23,64 +24,36 @@ namespace BuscaVogalUnica
             {
                 char current = input.GetNext();
 
-                if (IsVowel(current))
+                if (validChar.IsVowel(current))
                 {
-                    if (isLastCharConsonant)
+                    if (validChar.IsNewChar(_vowelsList, current))
                     {
-                        if (IsNewChar(current))
+                        if (isLastCharConsonant)
                         {
                             vowel = current;
                         }
+                    }
+                    else if (vowel == current)
+                    {
+                        vowel = '\0';
                     }
 
                     _vowelsList.Add(current);
                     isLastCharConsonant = false;
                 }
-                else if (IsConsonant(current))
+                else if (validChar.IsConsonant(current))
                 {
                     isLastCharConsonant = true;
                 }
                 else
                 {
-                    return '\0';
+                    // Caracter especial ou número
+                    isLastCharConsonant = false;
                 }
             }
 
             return vowel;
         }
 
-        /// <summary>
-        /// Verifica se o caracter é consoante
-        /// </summary>
-        /// <param name="letter">Caracter que deseja verificar</param>
-        private static bool IsConsonant(char letter)
-        {
-            if ((letter > 65 && letter < 91 ||
-                letter > 97 && letter < 123) && !IsVowel(letter)) return true;
-
-            return false;
-        }
-
-        /// <summary>
-        /// Verifica se o caracter é vogal
-        /// </summary>
-        /// <param name="letter">Caracter que deseja verificar</param>
-        private static bool IsVowel(char letter)
-        {
-            char[] vowels = new char[] { 'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u' };
-
-            for (int i = 0; i < vowels.Length; i++)
-            {
-                if (letter == vowels[i]) return true;
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Verifica se o caracter é novo
-        /// </summary>
-        /// <param name="letter">Caracter que deseja verificar</param>
-        private static bool IsNewChar(char letter) => _vowelsList.Where(c => c == letter).Count() == 0;
     }
 }

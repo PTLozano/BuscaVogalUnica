@@ -6,15 +6,15 @@ namespace BuscaVogalUnica
     {
         static void Main(string[] args)
         {
-            string test = "aAbBABacfe";
+            string text = "aAbBABacfe";
             string message;
 
-            IStream stream = new ManipulateText(test);
+            IStream stream = new ManipulateText(text);
             char result = CheckText.FirstChar(stream);
-            if (result == '\0')
-                message = "Somente os caracteres entre A-Z e/ou a-z devem estar no texto.";
+            if (result != '\0')
+                message = $"A vogal única encontrada no texto {text} é: {result.ToString()}";
             else
-                message = result.ToString();
+                message = $"Não foi possível encontrar nenhuma vogal que esteja em seguida de uma vogal e que seja única no texto: {text}.";
 
             Console.WriteLine(message);
             Console.ReadKey();
